@@ -1,17 +1,17 @@
-import { ConduitClient } from "@theophilusdev/conduit";
-import fs from "fs";
-import express from "express";
+const { ConduitClient } = require("@theophilusdev/conduit");
+const fs = require("fs");
+const express = require("express");
 
 // Initialize Express
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 10000;
 
 // Initialize Bot
 const appstate = fs.readFileSync("./appstate.json", "utf-8");
 const client = new ConduitClient({ listenEvents: true });
 
 // Login bot
-await client.login({ appstate });
+client.login({ appstate });
 
 // Message listener
 client.on("message:create", async (ctx, next) => {
@@ -27,8 +27,8 @@ app.get("/", (req, res) => {
   res.send("<h1>botonline</h1>");
 });
 
-// Start Express server
-app.listen(PORT, () => {
-  console.log(`✅ Bot running & Web available at http://localhost:${PORT}`);
+// Start Express server — IMPORTANT: bind to 0.0.0.0
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`✅ Bot running & Web available on port ${PORT}`);
 });
-  
+    
