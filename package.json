@@ -2,17 +2,16 @@
   "name": "conduit-bot",
   "version": "1.0.0",
   "description": "Conduit bot with Express web status",
-  "type": "module",
-  "main": "index.js",
+  "type": "commonjs",
+  "main": "app.js",
   "scripts": {
-    "start": "node index.js",
-    "build": "npm install"
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": ">=20.0.0 <=22.18.0"
   },
   "dependencies": {
     "@theophilusdev/conduit": "^1.2.3",
     "express": "^4.21.0"
-  },
-  "engines": {
-    "node": ">=18.0.0"
   }
 }
