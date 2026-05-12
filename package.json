@@ -1,0 +1,18 @@
+{
+  "name": "conduit-bot",
+  "version": "1.0.0",
+  "description": "Conduit bot with Express web status",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "npm install"
+  },
+  "dependencies": {
+    "@theophilusdev/conduit": "^1.2.3",
+    "express": "^4.21.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
